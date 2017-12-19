@@ -1,20 +1,10 @@
-from rest_framework.viewsets import ModelViewSet
-from developers.models import *
-from .serializers import *
+from rest_framework.viewsets import ReadOnlyModelViewSet
+from developers.models import Developers
+from .serializers import DevSerializer
+from .filters import DevFilter
 
 
-class DevViewSet(ModelViewSet):
+class DevViewSet(ReadOnlyModelViewSet):
     queryset = Developers.objects.all()
     serializer_class = DevSerializer
-
-class EduViewSet(ModelViewSet):
-    queryset = Education.objects.all()
-    serializer_class = EduSerializer
-
-class SkViewSet(ModelViewSet):
-    queryset = Skills.objects.all()
-    serializer_class = SkSerializer
-
-class EmpViewSet(ModelViewSet):
-    queryset = Empl_history.objects.all()
-    serializer_class = EmpSerializer
+    filter_class = DevFilter
