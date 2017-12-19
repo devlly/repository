@@ -1,0 +1,5 @@
+python==3.6.3
+django==2.0
+djangorestframework==3.7.3
+django_filter==1.1.0
+drf_writable_nested
